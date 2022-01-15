@@ -6,10 +6,15 @@ const PizzaSchema = new Schema({
     // define the fields
     pizzaName: {
         // specific data types
-        type: String
+        type: String,
+        //  require data to exist for that field
+        required: true,
+        trim: true
     },
     createdBy: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
     },
     //  timestamp field
     createdAt: {
@@ -21,6 +26,9 @@ const PizzaSchema = new Schema({
     },
     size: {
         type: String,
+        required: true,
+        // option stands for enumerable // a set of data that can be iterated over
+        enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
         default: 'Large'
     },
     // indicates an array as the data type
